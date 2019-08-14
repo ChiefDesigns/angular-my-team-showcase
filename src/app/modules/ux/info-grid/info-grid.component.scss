@@ -1,0 +1,43 @@
+.InfoGrid {
+  &-gridContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &-header,
+  &-body {
+    box-sizing: border-box;
+    display: inline-block;
+    padding-right: 0.625rem;
+    vertical-align: middle;
+    width:50%;
+
+    //@include media-lg {
+    //  display: block;
+    //  width: 100%;
+    //}
+  }
+
+  &-headingContainer,
+  &-dataFieldContainer {
+    height: 2rem;
+    width: 100%;
+
+    //@include media-lg {
+    //  display: inline-block;
+    //  width: auto;
+    //}
+  }
+
+  &-heading,
+  &-dataField {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-heading {
+    font-weight: bold;
+  }
+}

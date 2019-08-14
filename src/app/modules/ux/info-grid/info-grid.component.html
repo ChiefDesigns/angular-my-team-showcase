@@ -1,0 +1,12 @@
+<div class="InfoGrid-gridContainer">
+    <div class="InfoGrid-header">
+        <div class="InfoGrid-headingContainer" *ngFor="let field of config.header">
+            <h1 class="InfoGrid-heading">{{field.text}}</h1>
+        </div>
+    </div>
+    <div class="InfoGrid-body">
+        <div class="InfoGrid-dataFieldContainer" *ngFor="let text of config.body">
+            <span class="InfoGrid-dataField">{{text}}</span>
+        </div>
+    </div>
+</div>

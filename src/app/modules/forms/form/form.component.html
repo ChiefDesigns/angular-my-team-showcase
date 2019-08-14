@@ -1,0 +1,13 @@
+<div class="Form-container">
+    <form #form="ngForm" name="playerFilter" ngDefaultControl>
+        <ng-content></ng-content>
+        <div class="Form-actionsContainer" *ngIf="config.settings.showActions">
+            <div class="Form-cancelAction">
+                <button type="button" class="Form-action" (click)="config.actions.cancel()">Cancel</button>
+            </div>
+            <div class="Form-saveAction">
+                <button type="button" class="Form-action" (click)="onSave(form)">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

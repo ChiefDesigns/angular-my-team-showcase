@@ -1,0 +1,27 @@
+/* Add application styles & imports to this file! */
+/*@import "app/app.component.scss";*/
+th1, p, imgut, button, h1, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    color: #495C63;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    max-width: 100%;
+    padding: 0.625rem;
+    width: 100%;
+}
+
+button {
+    border: none;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+}
+
+p {
+}

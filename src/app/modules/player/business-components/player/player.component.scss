@@ -1,0 +1,150 @@
+@import './../../../../../assets/styles/mixins/media-queries.mixin';
+@import './../../../forms/form/form.component';
+
+.Player {
+  &-contentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &-content {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto 1.25rem auto;
+    width: 100%;
+
+    @include media-xs {
+      max-width: 480px;
+      width: 470px;
+    }
+
+    @include media-sm {
+      display: inline-block;
+      height: 45rem;
+      margin: 0 0 2.5rem;
+      max-width: 40%;
+      width: 40%;
+    }
+
+    @include media-dd {
+      max-width: 30%;
+      width: 30%;
+    }
+  }
+
+  &-card {
+    text-align: left;
+  }
+
+  &-informationContainer {
+    position: relative;
+  }
+
+  &-nameClubInfoContainer {
+    display: inline-block;
+    padding-left: 15px;
+    vertical-align: top;
+    width: 65%;
+  }
+
+  &-imageContainer {
+    border-radius: 50%;
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+
+  &-image {
+    display: inline-block;
+    border-radius: 50%;
+    height: 250px;
+    max-width: 350px;
+    width: 250px;
+  }
+
+  &-numberNameContainer,
+  &-clubCrestContainer,
+  &-infoGrid {
+    display: inline-block;
+    padding: 0 0.625rem;
+    margin: 1.25rem 0 0 0;
+    @include media-xs {
+      padding: 0 1.25rem;
+    }
+  }
+
+  &-numberNameContainer {
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  &-clubCrestContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &-infoGrid {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  &-numberContainer{
+    width: 100%;
+  }
+
+  &-number {
+    font-size: 4.5rem;
+    line-height: 1;
+    vertical-align: top;
+  }
+
+  &-nameContainer {
+    width: 100%;
+  }
+
+  &-name {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    vertical-align: top;
+  }
+
+  &-clubCrest {
+    display: inline-block;
+    height: 4.375rem;
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 4.375rem
+  }
+
+  &-clubName {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-left: 0.625rem;
+    vertical-align: middle;
+  }
+}
+
+.Button {
+  &-button {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    max-width: 100%;
+    opacity: .8;
+    padding: 0.625rem 0;
+    position: relative;
+    width: 100%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

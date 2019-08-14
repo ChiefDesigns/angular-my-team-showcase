@@ -1,0 +1,372 @@
+{
+  "id": 66,
+  "area": {
+    "id": 2072,
+    "name": "England"
+  },
+  "activeCompetitions": [
+    {
+      "id": 2021,
+      "area": {
+        "id": 2072,
+        "name": "England"
+      },
+      "name": "Premier League",
+      "code": "PL",
+      "plan": "TIER_ONE",
+      "lastUpdated": "2019-08-10T17:55:00Z"
+    },
+    {
+      "id": 2146,
+      "area": {
+        "id": 2077,
+        "name": "Europe"
+      },
+      "name": "UEFA Europa League",
+      "code": "EL",
+      "plan": "TIER_TWO",
+      "lastUpdated": "2019-08-09T00:05:02Z"
+    }
+  ],
+  "name": "Manchester United FC",
+  "shortName": "Man United",
+  "tla": "MUN",
+  "crestUrl": "http://upload.wikimedia.org/wikipedia/de/d/da/Manchester_United_FC.svg",
+  "address": "Sir Matt Busby Way Manchester M16 0RA",
+  "phone": "+44 (0161) 8688000",
+  "website": "http://www.manutd.com",
+  "email": "enquiries@manutd.co.uk",
+  "founded": 1878,
+  "clubColors": "Red / White",
+  "venue": "Old Trafford",
+  "squad": [
+    {
+      "biography": "David De Gea blossomed into one of the top goalkeepers in the world after joining United in 2011.\n\nWhen Sir Alex Ferguson signed the Spaniard to replace the outgoing Edwin van der Sar, the youngster was immediately thrust into the limelight. However, having already helped Atletico Madrid to win the Europa League in 2009/10 and the UEFA Super Cup thereafter, he was more than up to the task. His first season at United saw him unfairly scrutinised by sections of the media at every turn, but he adapted to the English game to show his true colours. \n\nThe Madrid-born shot-stopper’s fan-favourite status at Old Trafford has been emphasised by him claiming the Sir Matt Busby Player of the Year award on four occasions, more than any other player in United's history. Meanwhile, he has also collected the club’s Player’s Player of the Year award three times, showing the high regard his team-mates hold him in. ",
+      "id": 3188,
+      "name": "David De Gea",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1990-11-07T00:00:00Z",
+      "countryOfBirth": "Spain",
+      "image": "https://www.manutd.com/AssetPicker/images/0/0/12/30/794349/Player-Profiles-Square-DeGea1558101678953.jpg",
+      "nationality": "Spain",
+      "shirtNumber": 1,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3202,
+      "name": "Sergio Romero",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1987-02-22T00:00:00Z",
+      "countryOfBirth": "Argentina",
+      "image": "https://www.manutd.com/AssetPicker/images/0/0/12/30/794363/Player-Profiles-Square-Romero1558455963883.jpg",
+      "nationality": "Argentina",
+      "shirtNumber": 22,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7893,
+      "name": "Joel Pereira",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1996-06-28T00:00:00Z",
+      "countryOfBirth": "Switzerland",
+      "image": "https://www.manutd.com/AssetPicker/images/0/0/12/30/794352/Player-Profiles-Square-J-Pereira1558444876602.jpg",
+      "nationality": "Portugal",
+      "shirtNumber": 44,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7942,
+      "name": "Lee Grant",
+      "position": "Goalkeeper",
+      "dateOfBirth": "1983-01-27T00:00:00Z",
+      "countryOfBirth": "England",
+      "image": "https://www.manutd.com/AssetPicker/images/0/0/12/30/794351/Player-Profiles-Square-Grant1558445356595.jpg",
+      "nationality": "England",
+      "shirtNumber": 13,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3206,
+      "name": "Marcos Rojo",
+      "position": "Defender",
+      "dateOfBirth": "1990-03-20T00:00:00Z",
+      "countryOfBirth": "Argentina",
+      "image": "https://www.manutd.com/AssetPicker/images/0/0/12/30/794362/Player-Profiles-Square-Rojo1558453031477.jpg",
+      "nationality": "Argentina",
+      "shirtNumber": 15,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3492,
+      "name": "Victor Nilsson-Lindelöf",
+      "position": "Defender",
+      "dateOfBirth": "1994-07-17T00:00:00Z",
+      "countryOfBirth": "Sweden",
+      "image": "http://www.manutd.com/AssetPicker/images/0/0/12/30/794354/Player-Profiles-Square-Lindelof1558456166025.jpg",
+      "nationality": "Sweden",
+      "shirtNumber": 2,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3894,
+      "name": "Axel Tuanzebe",
+      "position": "Defender",
+      "dateOfBirth": "1997-11-14T00:00:00Z",
+      "countryOfBirth": "Congo DR",
+      "nationality": "England",
+      "shirtNumber": 38,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7896,
+      "name": "Chris Smalling",
+      "position": "Defender",
+      "dateOfBirth": "1989-11-22T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 12,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7897,
+      "name": "Phil Jones",
+      "position": "Defender",
+      "dateOfBirth": "1992-02-21T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 4,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7898,
+      "name": "Luke Shaw",
+      "position": "Defender",
+      "dateOfBirth": "1995-07-12T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 23,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7900,
+      "name": "Matteo Darmian",
+      "position": "Defender",
+      "dateOfBirth": "1989-12-02T00:00:00Z",
+      "countryOfBirth": "Italy",
+      "nationality": "Italy",
+      "shirtNumber": 36,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7901,
+      "name": "Eric Bailly",
+      "position": "Defender",
+      "dateOfBirth": "1994-04-12T00:00:00Z",
+      "countryOfBirth": "Côte d’Ivoire",
+      "nationality": "Côte d’Ivoire",
+      "shirtNumber": 3,
+      "role": "PLAYER"
+    },
+    {
+      "id": 15905,
+      "name": "Diogo Dalot",
+      "position": "Defender",
+      "dateOfBirth": "1999-03-18T00:00:00Z",
+      "countryOfBirth": "Portugal",
+      "nationality": "Portugal",
+      "shirtNumber": 20,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3326,
+      "name": "Harry Maguire",
+      "position": "Defender",
+      "dateOfBirth": "1992-03-05T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 5,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3317,
+      "name": "Ashley Young",
+      "position": "Defender",
+      "dateOfBirth": "1985-07-09T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 18,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3232,
+      "name": "Fred",
+      "position": "Midfielder",
+      "dateOfBirth": "1993-03-05T00:00:00Z",
+      "countryOfBirth": "Brazil",
+      "nationality": "Brazil",
+      "shirtNumber": 17,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3325,
+      "name": "Jesse Lingard",
+      "position": "Midfielder",
+      "dateOfBirth": "1992-12-15T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 14,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3366,
+      "name": "Paul Pogba",
+      "position": "Midfielder",
+      "dateOfBirth": "1993-03-15T00:00:00Z",
+      "countryOfBirth": "France",
+      "nationality": "France",
+      "shirtNumber": 6,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3438,
+      "name": "Nemanja Matić",
+      "position": "Midfielder",
+      "dateOfBirth": "1988-08-01T00:00:00Z",
+      "countryOfBirth": "Serbia",
+      "nationality": "Serbia",
+      "shirtNumber": 31,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7905,
+      "name": "Scott McTominay",
+      "position": "Midfielder",
+      "dateOfBirth": "1996-12-08T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "Scotland",
+      "shirtNumber": 39,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7974,
+      "name": "Daniel James",
+      "position": "Midfielder",
+      "dateOfBirth": "1997-11-10T00:00:00Z",
+      "countryOfBirth": "Wales",
+      "nationality": "Wales",
+      "shirtNumber": 21,
+      "role": "PLAYER"
+    },
+    {
+      "id": 8158,
+      "name": "Aaron Wan-Bissaka",
+      "position": "Midfielder",
+      "dateOfBirth": "1997-11-26T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 29,
+      "role": "PLAYER"
+    },
+    {
+      "id": 101075,
+      "name": "Mason Greenwood",
+      "position": "Midfielder",
+      "dateOfBirth": "2001-10-01T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 21,
+      "role": "PLAYER"
+    },
+    {
+      "id": 101076,
+      "name": "James Garner",
+      "position": "Midfielder",
+      "dateOfBirth": "2001-03-13T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 37,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3331,
+      "name": "Marcus Rashford",
+      "position": "Attacker",
+      "dateOfBirth": "1997-10-31T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 10,
+      "role": "PLAYER"
+    },
+    {
+      "id": 3372,
+      "name": "Anthony Martial",
+      "position": "Attacker",
+      "dateOfBirth": "1995-12-05T00:00:00Z",
+      "countryOfBirth": "France",
+      "nationality": "France",
+      "shirtNumber": 9,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7909,
+      "name": "Mata",
+      "position": "Attacker",
+      "dateOfBirth": "1988-04-28T00:00:00Z",
+      "countryOfBirth": "Spain",
+      "nationality": "Spain",
+      "shirtNumber": 8,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7910,
+      "name": "Angel Gomes",
+      "position": "Attacker",
+      "dateOfBirth": "2000-08-31T00:00:00Z",
+      "countryOfBirth": "England",
+      "nationality": "England",
+      "shirtNumber": 28,
+      "role": "PLAYER"
+    },
+    {
+      "id": 7911,
+      "name": "Alexis Sánchez",
+      "position": "Attacker",
+      "dateOfBirth": "1988-12-19T00:00:00Z",
+      "countryOfBirth": "Chile",
+      "nationality": "Chile",
+      "shirtNumber": 7,
+      "role": "PLAYER"
+    },
+    {
+      "id": 33153,
+      "name": "Andreas Pereira",
+      "position": "Attacker",
+      "dateOfBirth": "1996-01-01T00:00:00Z",
+      "countryOfBirth": "Belgium",
+      "nationality": "Brazil",
+      "shirtNumber": 15,
+      "role": "PLAYER"
+    },
+    {
+      "id": 98483,
+      "name": "Tahith Chong",
+      "position": "Attacker",
+      "dateOfBirth": "1999-12-04T00:00:00Z",
+      "countryOfBirth": "Curaçao",
+      "nationality": "Netherlands",
+      "shirtNumber": 44,
+      "role": "PLAYER"
+    },
+    {
+      "id": 38106,
+      "name": "Ole Gunnar Solskjær",
+      "position": null,
+      "dateOfBirth": "1973-02-26T00:00:00Z",
+      "countryOfBirth": "Norway",
+      "nationality": "Norway",
+      "shirtNumber": 70,
+      "role": "COACH"
+    }
+  ],
+  "lastUpdated": "2019-08-08T02:43:17Z"
+}

@@ -1,0 +1,12 @@
+@import "../assets/styles/mixins/media-queries.mixin";
+
+.App {
+  &-container {
+    width: 100%;
+    max-width: 90rem;
+
+    @include media-sm {
+      margin: 0 auto;
+    }
+  }
+}
