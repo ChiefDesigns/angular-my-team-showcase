@@ -9,10 +9,6 @@ export class FormComponent {
     @Input()
     public config: any;
 
-    public ngOnInit(): void {
-        console.log(this.config);
-    }
-
     public onSave(e: any): void {
 
         // this.config.actions.save();

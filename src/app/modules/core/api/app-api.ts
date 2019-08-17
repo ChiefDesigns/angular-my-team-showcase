@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs";
 
 @Injectable()
-export class MyTeamApi {
+export class AppApi {
   private _http: HttpClient;
 
   constructor(httpClient: HttpClient) {

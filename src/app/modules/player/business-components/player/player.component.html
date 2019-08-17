@@ -1,51 +1,44 @@
-<!--<hello name="{{ name }}"></hello>-->
-<!--<h1>Hello Angular!</h1>-->
-<!--<p>-->
-<!--    Start editing to see some magic happen :)-->
-<!--</p>-->
-<div class="Player-formContainer">
-    <app-form *ngIf="squad.length" [config]="formConfig">
+<div class="Player-formContainer" >
+    <app-form *ngIf="showTeam" [config]="formConfig">
         <div class="Form-inputContainer">
-            <input type="text" class="Form-input form-control" name="search" ngModel>
+            <input type="text" class="Form-input form-control" name="search" (keyup)="onKeyUp($event)">
         </div>
         <div class="Form-filtersContainer isRow">
             <div class="Form-checkboxContainer">
                 <label for="goalKeeperFilterCheckbox" class="Form-checkboxLabel">GK:</label>
-                <input id="goalKeeperFilterCheckbox"
+                <input #checkboxInput id="goalKeeperFilterCheckbox"
                        type="checkbox"
                        class="Form-checkbox form-control"
-                       name="goalKeeper"
-                       (change)="onCheckBox($event)">
+                       name="goalKeeper" (change)="onCheckBox()">
             </div>
             <div class="Form-checkboxContainer">
                 <label for="defenderFilterCheckbox" class="Form-checkboxLabel">DEF:</label>
-                <input id="defenderFilterCheckbox"
+                <input #checkboxInput id="defenderFilterCheckbox"
                        type="checkbox"
                        class="Form-checkbox form-control"
-                       name="defender"
-                       (change)="onCheckBox($event)">
+                       name="defender" (change)="onCheckBox()">
             </div>
             <div class="Form-checkboxContainer">
                 <label for="midfielderFilterCheckbox" class="Form-checkboxLabel">MID:</label>
-                <input id="midfielderFilterCheckbox"
+                <input #checkboxInput id="midfielderFilterCheckbox"
                        type="checkbox"
                        class="Form-checkbox form-control"
                        name="midfielder"
-                       (change)="onCheckBox($event)">
+                       (change)="onCheckBox()">
             </div>
             <div class="Form-checkboxContainer">
                 <label for="attackerFilterCheckbox" class="Form-checkboxLabel">ATT:</label>
-                <input id="attackerFilterCheckbox"
+                <input #checkboxInput id="attackerFilterCheckbox"
                        type="checkbox"
                        class="Form-checkbox form-control"
                        name="attacker"
-                       (change)="onCheckBox($event)">
+                       (change)="onCheckBox()">
             </div>
         </div>
     </app-form>
 </div>
-<div class="Player-contentContainer">
-    <div class="Player-content" *ngFor="let player of squad">
+<div class="Player-contentContainer" *ngIf="showTeam">
+    <div class="Player-content" *ngFor="let player of team.squad">
         <app-card>
             <button class="Button-button" (click)="getPlayerInfo(player)">
                 <div class="Player-card">
@@ -62,13 +55,13 @@
                             </div>
                         </div>
                         <div class="Player-clubCrestContainer">
-                            <img class="Player-clubCrest" [src]="clubCrestUrl" alt="">
-                            <span class="Player-clubName">{{clubName}}</span>
+                            <img class="Player-clubCrest" [src]="team.clubCrestUrl" alt="">
+                            <span class="Player-clubName">{{team.name}}</span>
                         </div>
                         <div class="Player-infoGrid">
                             <app-info-grid [config]="{
                                 header: infoGridHeader,
-                                body: [player.nationality, player.position, player.dateOfBirth | date, squadMemberRole[player.role]]
+                                body: [player.nationality, player.position, player.dateOfBirth | date, team.squadMemberRole[player.role]]
                             }"></app-info-grid>
                         </div>
                     </div>
