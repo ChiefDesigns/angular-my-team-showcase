@@ -137,11 +137,16 @@ export class PlayerService {
       this._checked.splice(index, 1);
     }
 
-    this._checked.forEach((): void => {
-      this.filtered = this.filtered.filter((player: IPlayer): any => {
-        return checkbox.nativeElement.name !== player.position.toLowerCase();
-      });
-    })
+    if (this._checked.length) {
+
+      this._checked.forEach((): void => {
+        this.filtered = this.filtered.filter((player: IPlayer): any => {
+          return checkbox.nativeElement.name !== player.position.toLowerCase();
+        });
+      })
+    } else {
+      this.filtered = [];
+    }
   }
 
 }

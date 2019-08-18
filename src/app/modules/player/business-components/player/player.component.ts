@@ -63,7 +63,7 @@ export class PlayerComponent implements OnInit {
     }
 
     public onCheckBox(): void {
-        this.team.squad = this._playerService.filtered;
+        this.team.squad = this._playerService.filtered.length ? this._playerService.filtered : this._response.items;
     }
 
     public onKeyUp(event: any): void {
