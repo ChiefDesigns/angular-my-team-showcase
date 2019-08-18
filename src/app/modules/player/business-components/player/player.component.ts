@@ -68,7 +68,7 @@ export class PlayerComponent implements OnInit {
 
     public onKeyUp(event: any): void {
         const searchValue: string = event.target.value;
-        const results: IPlayer[] = this._setTeamOnKeyUp(searchValue)
+        const results: IPlayer[] = this._setTeamOnKeyUp(searchValue);
 
         this.team.squad = results.length ? results : this._response.items;
     }
@@ -91,7 +91,7 @@ export class PlayerComponent implements OnInit {
     }
 
     private _setTeamOnKeyUp(searchValue: string): IPlayer[] {
-        const model: IPlayer[] = this._playerService.filtered.length ? this._playerService.filtered : this.team.squad;
+        const model: IPlayer[] = this._playerService.filtered.length ? this._playerService.filtered : this._response.items;
 
         if (searchValue) {
             return searchValue ? this._playerService.search(
@@ -100,6 +100,6 @@ export class PlayerComponent implements OnInit {
             ) : this._response.items
         }
 
-        return model.length ? model : [];
+        return this._playerService.filtered.length ? model : this._response.items;
     }
 }
