@@ -16,7 +16,6 @@ export class PlayerService {
 
   constructor(myTeamModel: AppModel, ) {
     this._appModel = myTeamModel;
-
   }
 
   public getPlayers(url: string): Observable<ModelInstance> {

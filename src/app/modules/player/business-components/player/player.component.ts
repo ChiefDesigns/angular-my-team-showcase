@@ -68,8 +68,9 @@ export class PlayerComponent implements OnInit {
 
     public onKeyUp(event: any): void {
         const searchValue: string = event.target.value;
+        const results: IPlayer[] = this._setTeamOnKeyUp(searchValue)
 
-        this.team.squad = this._setTeamOnKeyUp(searchValue);
+        this.team.squad = results.length ? results : this._response.items;
     }
 
     private _getPlayers(): void {
@@ -98,6 +99,7 @@ export class PlayerComponent implements OnInit {
                 searchValue
             ) : this._response.items
         }
-        return model;
+
+        return model.length ? model : [];
     }
 }
