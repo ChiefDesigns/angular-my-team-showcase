@@ -15,6 +15,7 @@ import {ITeamProps} from "./interfaces/team.interface";
 import {SquadMemberRole} from "./enums/player.enum";
 import {IFormConfig} from "../../../forms/form/interfaces/form.component.interface";
 import {IPlayer} from "../../interfaces/player.interface";
+import {ITableConfig, ITableConfigBodyItem} from "../../../ux/presentation-components/table/interfaces/table.interface";
 
 @Component({
     selector: 'app-player-component',
@@ -28,6 +29,8 @@ export class PlayerComponent implements OnInit {
     public _router: Router;
     public infoGridHeader: any[];
     public formConfig: IFormConfig;
+    public tableConfig: ITableConfig;
+    public gridView: boolean;
 
     private _playerService: PlayerService;
     private  _response: ModelInstance;
@@ -64,6 +67,7 @@ export class PlayerComponent implements OnInit {
 
     public onCheckBox(): void {
         this.team.squad = this._playerService.filtered.length ? this._playerService.filtered : this._response.items;
+        this._setTableConfig(this._mapTableBodyItems());
     }
 
     public onKeyUp(event: any): void {
@@ -71,6 +75,7 @@ export class PlayerComponent implements OnInit {
         const results: IPlayer[] = this._setTeamOnKeyUp(searchValue);
 
         this.team.squad = results.length ? results : this._response.items;
+        this._setTableConfig(this._mapTableBodyItems());
     }
 
     private _getPlayers(): void {
@@ -78,6 +83,8 @@ export class PlayerComponent implements OnInit {
             this._response = response;
             this.team = this._setTeamProps(response);
             this.showTeam = true;
+            this.gridView = false;
+            this._setTableConfig(this._mapTableBodyItems());
         });
     }
 
@@ -101,5 +108,45 @@ export class PlayerComponent implements OnInit {
         }
 
         return this._playerService.filtered.length ? model : this._response.items;
+    }
+
+    private _setTableConfig(bodyItems: ITableConfigBodyItem[]): void {
+        this.tableConfig = {
+            header: {
+                items: [
+                    {
+                        text: 'Name',
+                        fieldId: 'name'
+                    },
+                    {
+                        text: 'Nationality',
+                        fieldId: 'nationality'
+                    },
+                    {
+                        text: 'Position',
+                        fieldId: 'position'
+                    },
+                    {
+                        text: 'Date Of Birth',
+                        fieldId: 'dateOfBirth'
+                    },
+                    {
+                        text: 'Role',
+                        fieldId: 'role'
+                    }
+                ],
+            },
+            body: {
+                items: bodyItems
+            }
+        }
+    }
+
+    private _mapTableBodyItems(): ITableConfigBodyItem[] {
+        return this.team.squad.map((player: IPlayer): any => {
+            const { dateOfBirth, name, nationality, position, role } = player;
+
+            return { dateOfBirth, name, nationality, position, role };
+        });
     }
 }

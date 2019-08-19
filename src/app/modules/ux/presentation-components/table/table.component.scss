@@ -1,0 +1,38 @@
+.Table {
+    &-container,
+    &-table {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    &-table {
+        border-spacing: 0;
+    }
+
+    &-thead {
+    }
+
+    &-theadTr {
+        background-color: #ebebeb;
+        text-align: left;
+    }
+
+    &-theadTh {
+        padding: 0 10px;
+    }
+
+    &-theadAction {
+        font-weight: bold;
+        font-size: 14px;
+        padding: 20px 0;
+    }
+
+    &-tbodyTd {
+        box-sizing: border-box;
+        padding: 20px 10px;
+    }
+
+    &--evenRow {
+        background-color: #f9f9f9;
+    }
+}

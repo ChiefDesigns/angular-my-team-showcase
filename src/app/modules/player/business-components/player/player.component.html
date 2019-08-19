@@ -37,37 +37,44 @@
         </div>
     </app-form>
 </div>
-<div class="Player-contentContainer" *ngIf="showTeam">
-    <div class="Player-content" *ngFor="let player of team.squad">
-        <app-card>
-            <button class="Button-button" (click)="getPlayerInfo(player)">
-                <div class="Player-card">
-                    <div class="Player-informationContainer">
-                        <div class="Player-imageContainer">
-                            <img class="Player-image"[src]="player.image || playerImagePlaceholder" alt="">
-                        </div>
-                        <div class="Player-numberNameContainer">
-                            <div class="Player-numberContainer">
-                                <h1 class="Player-number">#{{player.shirtNumber}}</h1>
-                            </div>
-                            <div class="Player-nameContainer">
-                                <h1 class="Player-name">{{player.name}}</h1>
-                            </div>
-                        </div>
-                        <div class="Player-clubCrestContainer">
-                            <img class="Player-clubCrest" [src]="team.clubCrestUrl" alt="">
-                            <span class="Player-clubName">{{team.name}}</span>
-                        </div>
-                        <div class="Player-infoGrid">
-                            <app-info-grid [config]="{
+<div class="Player-viewModeContainer">
+    <div class="Player-gridContainer" *ngIf="gridView; else cardsView">
+        <app-table [config]="tableConfig"></app-table>
+    </div>
+    <ng-template #cardsView>
+        <div class="Player-contentContainer" *ngIf="showTeam">
+            <div class="Player-content" *ngFor="let player of team.squad">
+                <app-card>
+                    <button class="Button-button" (click)="getPlayerInfo(player)">
+                        <div class="Player-card">
+                            <div class="Player-informationContainer">
+                                <div class="Player-imageContainer">
+                                    <img class="Player-image"[src]="player.image || playerImagePlaceholder" alt="">
+                                </div>
+                                <div class="Player-numberNameContainer">
+                                    <div class="Player-numberContainer">
+                                        <h1 class="Player-number">#{{player.shirtNumber}}</h1>
+                                    </div>
+                                    <div class="Player-nameContainer">
+                                        <h1 class="Player-name">{{player.name}}</h1>
+                                    </div>
+                                </div>
+                                <div class="Player-clubCrestContainer">
+                                    <img class="Player-clubCrest" [src]="team.clubCrestUrl" alt="">
+                                    <span class="Player-clubName">{{team.name}}</span>
+                                </div>
+                                <div class="Player-infoGrid">
+                                    <app-info-grid [config]="{
                                 header: infoGridHeader,
                                 body: [player.nationality, player.position, player.dateOfBirth | date, team.squadMemberRole[player.role]]
                             }"></app-info-grid>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </button>
-        </app-card>
+                    </button>
+                </app-card>
 
-    </div>
+            </div>
+        </div>
+    </ng-template>
 </div>

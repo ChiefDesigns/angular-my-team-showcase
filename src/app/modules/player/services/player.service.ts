@@ -12,7 +12,8 @@ export class PlayerService {
   public filtered: IPlayer[] = [];
 
   private _appModel: AppModel;
-  private _checked: string[] = [];
+  private _checkedInOrder: string[] = [];
+  private _checkedCollection: string[] = [];
 
   constructor(myTeamModel: AppModel, ) {
     this._appModel = myTeamModel;
@@ -120,11 +121,12 @@ export class PlayerService {
     const order: number = Number(PlayerFilter[checkbox.nativeElement.name.toUpperCase()]);
     const filteredByPosition: IPlayer[] = [];
 
-    if(this._checked.indexOf(checkbox.nativeElement.name) === -1) {
-      this._checked[order] = (checkbox.nativeElement.name);
+    if(this._checkedInOrder.indexOf(checkbox.nativeElement.name) === -1) {
+      // Adds empty slots in the array - clear them or implement alternative solution
+      this._checkedInOrder[order] = (checkbox.nativeElement.name);
     }
 
-    this._checked.forEach((filter: string): void => {
+    this._checkedInOrder.forEach((filter: string): void => {
       filteredByPosition.push(...this. _extractFiltered(filter, squad))
     })
 
@@ -132,14 +134,20 @@ export class PlayerService {
   }
 
   private _removeCheckedFilter(checkbox: any): void {
-    const index: number = this._checked.indexOf(checkbox.nativeElement.name);
+    const index: number = this._checkedInOrder.indexOf(checkbox.nativeElement.name);
+
     if (index !== -1) {
-      this._checked.splice(index, 1);
+      this._checkedInOrder.splice(index, 1);
     }
 
-    if (this._checked.length) {
 
-      this._checked.forEach((): void => {
+    // Remove empty slots
+    this._checkedInOrder = this._checkedInOrder.filter((): boolean => {
+      return true;
+    });
+
+    if (this._checkedInOrder.length) {
+      this._checkedInOrder.forEach((): void => {
         this.filtered = this.filtered.filter((player: IPlayer): any => {
           return checkbox.nativeElement.name !== player.position.toLowerCase();
         });
