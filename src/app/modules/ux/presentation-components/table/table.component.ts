@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ITableComponent, ITableConfig, ITableConfigHeaderItem} from "./interfaces/table.interface";
-import { playerImagePlaceholder } from 'src/assets/resources/placeholder';
+import { playerImagePlaceholder } from '../../../../../assets/resources/placeholder';
 
 @Component({
   selector: 'app-table',
