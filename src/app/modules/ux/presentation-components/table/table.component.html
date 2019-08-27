@@ -2,17 +2,23 @@
   <table class="Table-table">
     <thead class="Table-thead">
     <tr class="Table-theadTr">
-      <th class="Table-theadTh" *ngFor="let header of config.header.items">
-        <button class="Table-theadAction" (click)="header.action()">{{header.text}}</button>
+      <th class="Table-theadTh"
+          *ngFor="let header of config.header.items;">
+        <button class="Table-theadAction" (click)="header.action && header.action()">{{header.text}}</button>
       </th>
     </tr>
     </thead>
     <tbody class="Table-tbody">
-      <tr class="Table-tbodyTr"
-          *ngFor="let item of config.body.items; let even = even;"
-          [class.Table--evenRow]="even">
-        <td class="Table-tbodyTd" *ngFor="let field of config.header.items">{{item[field.fieldId]}}</td>
-      </tr>
+    <tr class="Table-tbodyTr"
+        *ngFor="let item of config.body.items;">
+      <td class="Table-tbodyTd"
+          *ngFor="let field of config.header.items; let first = first" [attr.data-label]="field.text">
+        <div class="Table-imageContainer" *ngIf="first">
+          <img class="Table-image" [src]="item.image || playerImagePlaceholder" alt="">
+        </div>
+        <span class="Table-tbodyTdText">{{item[field.fieldId]}}</span>
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>

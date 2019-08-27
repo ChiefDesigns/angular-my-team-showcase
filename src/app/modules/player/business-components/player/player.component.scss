@@ -35,6 +35,25 @@
     }
   }
 
+  &-toggleOptions {
+    margin-bottom: 20px;
+  }
+
+  &-gridViewAction,
+  &-cardViewAction {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &-gridViewAction {
+    margin-right: 10px;
+  }
+
+  &-cardViewAction {
+
+  }
+
   &-card {
     text-align: left;
   }
@@ -132,6 +151,10 @@
     font-size: 1.2rem;
     margin-left: 0.625rem;
     vertical-align: middle;
+  }
+
+  &--inActiveToggleOption {
+    color: #007bff;
   }
 }
 

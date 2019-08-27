@@ -1,5 +1,6 @@
 export interface ITableComponent {
-    config: ITableConfig
+    config: ITableConfig;
+    playerImagePlaceholder: string;
 }
 
 export interface ITableConfig {

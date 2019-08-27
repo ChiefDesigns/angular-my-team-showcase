@@ -1,38 +1,171 @@
+@import "../../../../../assets/styles/mixins/media-queries.mixin";
 .Table {
-    &-container,
-    &-table {
+  &-container {
+    border-radius: 6px;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+
+    @include media-md {
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+
+      &::before {
+        content: '';
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
         max-width: 100%;
-        width: 100%;
+        width: 98%;
+        box-shadow: 0 1rem 1rem -1rem rgba(0,0,0,0.14);
+        position: absolute;
+        padding: 30px 0;
+      }
+    }
+  }
+
+  &-table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 6px;
+    max-width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    width: 100%;
+
+    @include media-md {
+      text-align: unset;
+    }
+  }
+
+  &-thead {
+    position: absolute;
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+
+    @include media-md {
+      position: unset;
+    }
+  }
+
+  &-theadAction {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 20px 0;
+  }
+
+  &-tbodyTr,
+  &-theadTr {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,.03);
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+    margin: 0 auto 1.25rem auto;
+    //padding: 10px;
+    text-align: left;
+
+    @include media-xs {
+      max-width: 450px;
+      width: 450px;
     }
 
-    &-table {
-        border-spacing: 0;
+    @include media-sm {
+      display: inline-block;
+      max-width: 350px;
+      margin-left: 5%;
+      margin-bottom: 5%;
+      width: 350px;
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
     }
 
-    &-thead {
+    @include media-md {
+      display: table-row;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &-theadTr {
+    //background-color: #ebebeb;
+    text-align: left;
+  }
+
+  &-theadTh {
+    @include media-md {
+      box-sizing: border-box;
+      padding: 0 10px 15px 10px;
+    }
+  }
+
+  &-tbodyTd {
+    //box-sizing: border-box;
+    padding: 10px;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+
+    &::before {
+      content: attr(data-label);
+      display: inline-block;
+      margin-right: 5px;
+      padding: 5px 0;
+      vertical-align: middle;
+      width: 50%;
+
+      @include media-md {
+        content: '';
+        display: none;
+      }
     }
 
-    &-theadTr {
-        background-color: #ebebeb;
-        text-align: left;
+    @include media-md {
+      display: table-cell;
     }
+  }
 
-    &-theadTh {
-        padding: 0 10px;
-    }
+  &-imageContainer {
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    margin-right: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 30px;
+  }
 
-    &-theadAction {
-        font-weight: bold;
-        font-size: 14px;
-        padding: 20px 0;
-    }
+  &-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 
-    &-tbodyTd {
-        box-sizing: border-box;
-        padding: 20px 10px;
-    }
+  &-tbodyTdText {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    padding: 5px 0;
+  }
 
-    &--evenRow {
-        background-color: #f9f9f9;
-    }
+  &--evenRow {
+    background-color: #f9f9f9;
+  }
+
+  &--stickyColumn {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: auto;
+    width: 140px;
+    max-width: 140px;
+  }
+
+
+  &--roundedBorder {
+    border-top-right-radius: 6px;
+  }
 }

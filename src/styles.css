@@ -6,6 +6,7 @@ th1, p, imgut, button, h1, body {
 }
 
 body {
+    background-color: #fff;
     box-sizing: border-box;
     color: #495C63;
     font-family: 'Open Sans Condensed', sans-serif;

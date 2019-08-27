@@ -1,5 +1,5 @@
 <div class="Player-formContainer" >
-    <app-form *ngIf="showTeam" [config]="formConfig">
+    <app-form *ngIf="gridView  || showTeam" [config]="formConfig">
         <div class="Form-inputContainer">
             <input type="text" class="Form-input form-control" name="search" (keyup)="onKeyUp($event)">
         </div>
@@ -36,6 +36,16 @@
             </div>
         </div>
     </app-form>
+</div>
+<div class="Player-toggleOptions">
+    <button class="Player-gridViewAction"
+            [disabled]="gridView"
+            [class.Player--inActiveToggleOption]="!gridView"
+            (click)="toggleView()">Grid View</button>
+    <button class="Player-cardViewAction"
+            [disabled]="!gridView"
+            [class.Player--inActiveToggleOption]="gridView"
+            (click)="toggleView()">Card View</button>
 </div>
 <div class="Player-viewModeContainer">
     <div class="Player-gridContainer" *ngIf="gridView; else cardsView">

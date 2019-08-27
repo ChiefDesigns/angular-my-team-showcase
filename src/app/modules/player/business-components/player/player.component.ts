@@ -78,12 +78,17 @@ export class PlayerComponent implements OnInit {
         this._setTableConfig(this._mapTableBodyItems());
     }
 
+    public toggleView(): void {
+        this.gridView = !this.gridView;
+        this.showTeam = !this.showTeam;
+    }
+
     private _getPlayers(): void {
         this._playerService.getPlayers(ApiLinksEnum.DATA).subscribe((response: ModelInstance): void => {
             this._response = response;
             this.team = this._setTeamProps(response);
-            this.showTeam = true;
-            this.gridView = false;
+            this.showTeam = false;
+            this.gridView = true;
             this._setTableConfig(this._mapTableBodyItems());
         });
     }
@@ -144,9 +149,9 @@ export class PlayerComponent implements OnInit {
 
     private _mapTableBodyItems(): ITableConfigBodyItem[] {
         return this.team.squad.map((player: IPlayer): any => {
-            const { dateOfBirth, name, nationality, position, role } = player;
+            const { dateOfBirth, image, name, nationality, position, role, } = player;
 
-            return { dateOfBirth, name, nationality, position, role };
+            return { dateOfBirth, image, name, nationality, position, role };
         });
     }
 }
