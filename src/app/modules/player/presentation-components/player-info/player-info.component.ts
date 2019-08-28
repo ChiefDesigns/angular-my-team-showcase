@@ -20,7 +20,6 @@ export class PlayerInfoComponent {
             if (player) {
                 this.player = player;
             }
-            //Continue here
         });
     }
 }

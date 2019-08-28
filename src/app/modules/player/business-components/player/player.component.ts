@@ -24,7 +24,6 @@ import {ITableConfig, ITableConfigBodyItem} from "../../../ux/presentation-compo
 })
 export class PlayerComponent implements OnInit {
     public team: ITeamProps;
-    public showTeam: boolean = false;
     public playerImagePlaceholder: string = playerImagePlaceholder;
     public _router: Router;
     public infoGridHeader: any[];
@@ -80,14 +79,12 @@ export class PlayerComponent implements OnInit {
 
     public toggleView(): void {
         this.gridView = !this.gridView;
-        this.showTeam = !this.showTeam;
     }
 
     private _getPlayers(): void {
         this._playerService.getPlayers(ApiLinksEnum.DATA).subscribe((response: ModelInstance): void => {
             this._response = response;
             this.team = this._setTeamProps(response);
-            this.showTeam = false;
             this.gridView = true;
             this._setTableConfig(this._mapTableBodyItems());
         });
