@@ -1,0 +1,62 @@
+<div class="PlayerForm-formContainer" >
+  <app-form [config]="formConfig">
+    <div class="Form-inputContainer">
+      <input type="text"
+             class="Form-input form-control"
+             name="search"
+             (keyup)="onKeyUp($event)"
+             autocomplete="off">
+    </div>
+    <div class="Form-filtersContainer isRow">
+      <div class="Form-checkboxContainer">
+        <label for="goalKeeperFilterCheckbox" class="Form-checkboxLabel">GK:</label>
+        <input
+                id="goalKeeperFilterCheckbox"
+                type="checkbox"
+                class="Form-checkbox form-control"
+                name="goalkeeper"
+                appSort
+                field="position"
+                fieldValue="goalkeeper"
+                [model]="filterConfig.sortModel"
+                (onSort)="onPlayerSort($event)">
+      </div>
+      <div class="Form-checkboxContainer">
+        <label for="defenderFilterCheckbox" class="Form-checkboxLabel">DEF:</label>
+        <input id="defenderFilterCheckbox"
+               type="checkbox"
+               class="Form-checkbox form-control"
+               name="defender"
+               appSort
+               field="position"
+               fieldValue="defender"
+               [model]="filterConfig.sortModel"
+               (onSort)="onPlayerSort($event)">
+      </div>
+      <div class="Form-checkboxContainer">
+        <label for="midfielderFilterCheckbox" class="Form-checkboxLabel">MID:</label>
+        <input id="midfielderFilterCheckbox"
+               type="checkbox"
+               class="Form-checkbox form-control"
+               name="midfielder"
+               appSort
+               field="position"
+               fieldValue="midfielder"
+               [model]="filterConfig.sortModel"
+               (onSort)="onPlayerSort($event)">
+      </div>
+      <div class="Form-checkboxContainer">
+        <label for="attackerFilterCheckbox" class="Form-checkboxLabel">ATT:</label>
+        <input id="attackerFilterCheckbox"
+               type="checkbox"
+               class="Form-checkbox form-control"
+               name="attacker"
+               appSort
+               field="position"
+               fieldValue="attacker"
+               [model]="filterConfig.sortModel"
+               (onSort)="onPlayerSort($event)">
+      </div>
+    </div>
+  </app-form>
+</div>

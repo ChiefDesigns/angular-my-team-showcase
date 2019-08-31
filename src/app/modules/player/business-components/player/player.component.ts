@@ -1,10 +1,7 @@
 import {
     Component,
-    ElementRef,
     OnInit,
-    QueryList,
     Renderer2,
-    ViewChildren
 } from "@angular/core";
 import {PlayerService} from "../../services/player.service";
 import {playerImagePlaceholder } from '../../../../../assets/resources/placeholder';
@@ -16,6 +13,8 @@ import {SquadMemberRole} from "./enums/player.enum";
 import {IFormConfig} from "../../../forms/form/interfaces/form.component.interface";
 import {IPlayer} from "../../interfaces/player.interface";
 import {ITableConfig, ITableConfigBodyItem} from "../../../ux/presentation-components/table/interfaces/table.interface";
+import {BehaviorSubject} from "rxjs";
+import {IPlayerFormConfig} from "./form/interfaces/player-form.interface";
 
 @Component({
     selector: 'app-player-component',
@@ -30,28 +29,19 @@ export class PlayerComponent implements OnInit {
     public formConfig: IFormConfig;
     public tableConfig: ITableConfig;
     public gridView: boolean;
+    public formFilterConfig: IPlayerFormConfig;
+    public list: IPlayer[];
 
     private _playerService: PlayerService;
     private  _response: ModelInstance;
     private readonly _renderer2: Renderer2;
+    private _listSubject: BehaviorSubject<IPlayer[]>;
 
     constructor(playerService: PlayerService, router: Router, renderer2: Renderer2) {
         this._playerService = playerService;
         this._router = router;
         this._renderer2 = renderer2;
     }
-
-    @ViewChildren('checkboxInput') set checkbox(checkboxes: QueryList<ElementRef>) {
-        if(checkboxes.length) {
-            this._playerService.onCheckBoxFilter({
-                checkboxes,
-                event,
-                renderer: this._renderer2,
-                squad: this._response && this._response.items,
-                hostComponent: this,
-            });
-        }
-    };
 
     public ngOnInit(): void {
         this._getPlayers();
@@ -64,17 +54,11 @@ export class PlayerComponent implements OnInit {
         sessionStorage.setItem('player', JSON.stringify(player));
     }
 
-    public onCheckBox(): void {
-        this.team.squad = this._playerService.filtered.length ? this._playerService.filtered : this._response.items;
-        this._setTableConfig(this._mapTableBodyItems());
-    }
-
-    public onKeyUp(event: any): void {
-        const searchValue: string = event.target.value;
-        const results: IPlayer[] = this._setTeamOnKeyUp(searchValue);
-
-        this.team.squad = results.length ? results : this._response.items;
-        this._setTableConfig(this._mapTableBodyItems());
+    public onSort(): void {
+        this._listSubject.subscribe((nextList: IPlayer[]): void => {
+            this.list = nextList.length ? nextList : this.team.squad;
+            this.tableConfig.body.items = this._mapTableBodyItems();
+        })
     }
 
     public toggleView(): void {
@@ -84,9 +68,12 @@ export class PlayerComponent implements OnInit {
     private _getPlayers(): void {
         this._playerService.getPlayers(ApiLinksEnum.DATA).subscribe((response: ModelInstance): void => {
             this._response = response;
+            this.list = response.items;
             this.team = this._setTeamProps(response);
             this.gridView = true;
             this._setTableConfig(this._mapTableBodyItems());
+            this._listSubject = new BehaviorSubject(response.items);
+            this._setFormConfig(response);
         });
     }
 
@@ -99,53 +86,26 @@ export class PlayerComponent implements OnInit {
         };
     }
 
-    private _setTeamOnKeyUp(searchValue: string): IPlayer[] {
-        const model: IPlayer[] = this._playerService.filtered.length ? this._playerService.filtered : this._response.items;
-
-        if (searchValue) {
-            return searchValue ? this._playerService.search(
-                model,
-                searchValue
-            ) : this._response.items
+    private _setFormConfig(response: ModelInstance): void {
+        this.formFilterConfig = {
+            sortModel: {
+                collection: response.items
+            },
+            listSubject: this._listSubject,
         }
-
-        return this._playerService.filtered.length ? model : this._response.items;
     }
 
     private _setTableConfig(bodyItems: ITableConfigBodyItem[]): void {
         this.tableConfig = {
-            header: {
-                items: [
-                    {
-                        text: 'Name',
-                        fieldId: 'name'
-                    },
-                    {
-                        text: 'Nationality',
-                        fieldId: 'nationality'
-                    },
-                    {
-                        text: 'Position',
-                        fieldId: 'position'
-                    },
-                    {
-                        text: 'Date Of Birth',
-                        fieldId: 'dateOfBirth'
-                    },
-                    {
-                        text: 'Role',
-                        fieldId: 'role'
-                    }
-                ],
-            },
+            header: this._playerService.setTableHeaderFieldConfig(),
             body: {
                 items: bodyItems
             }
-        }
+        };
     }
 
     private _mapTableBodyItems(): ITableConfigBodyItem[] {
-        return this.team.squad.map((player: IPlayer): any => {
+        return this.list.map((player: IPlayer): any => {
             const { dateOfBirth, image, name, nationality, position, role, } = player;
 
             return { dateOfBirth, image, name, nationality, position, role };

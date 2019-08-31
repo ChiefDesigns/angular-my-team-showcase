@@ -5,11 +5,14 @@ import {CommonModule} from "@angular/common";
 import {PlayerInfoComponent} from "./presentation-components/player-info/player-info.component";
 import {UxModule} from "../ux/ux.module";
 import {AppFormsModule} from "../forms/forms.module";
+import { PlayerFormComponent } from './business-components/player/form/player-form.component';
+import {PlayerFormService} from "./services/form/player-form.service";
 
 @NgModule({
   declarations: [
       PlayerComponent,
       PlayerInfoComponent,
+      PlayerFormComponent,
   ],
   exports: [
       PlayerComponent,
@@ -21,7 +24,8 @@ import {AppFormsModule} from "../forms/forms.module";
       UxModule,
   ],
   providers: [
-      PlayerService
+      PlayerService,
+      PlayerFormService
   ]
 })
 export class PlayerModule {}

@@ -1,44 +1,9 @@
 <div class="Player-viewModeContainer" *ngIf="team">
     <div class="Player-formAndGridOptionsContainer">
-        <div class="Player-formContainer" >
-            <app-form [config]="formConfig">
-                <div class="Form-inputContainer">
-                    <input type="text" class="Form-input form-control" name="search" (keyup)="onKeyUp($event)">
-                </div>
-                <div class="Form-filtersContainer isRow">
-                    <div class="Form-checkboxContainer">
-                        <label for="goalKeeperFilterCheckbox" class="Form-checkboxLabel">GK:</label>
-                        <input #checkboxInput id="goalKeeperFilterCheckbox"
-                               type="checkbox"
-                               class="Form-checkbox form-control"
-                               name="goalKeeper" (change)="onCheckBox()">
-                    </div>
-                    <div class="Form-checkboxContainer">
-                        <label for="defenderFilterCheckbox" class="Form-checkboxLabel">DEF:</label>
-                        <input #checkboxInput id="defenderFilterCheckbox"
-                               type="checkbox"
-                               class="Form-checkbox form-control"
-                               name="defender" (change)="onCheckBox()">
-                    </div>
-                    <div class="Form-checkboxContainer">
-                        <label for="midfielderFilterCheckbox" class="Form-checkboxLabel">MID:</label>
-                        <input #checkboxInput id="midfielderFilterCheckbox"
-                               type="checkbox"
-                               class="Form-checkbox form-control"
-                               name="midfielder"
-                               (change)="onCheckBox()">
-                    </div>
-                    <div class="Form-checkboxContainer">
-                        <label for="attackerFilterCheckbox" class="Form-checkboxLabel">ATT:</label>
-                        <input #checkboxInput id="attackerFilterCheckbox"
-                               type="checkbox"
-                               class="Form-checkbox form-control"
-                               name="attacker"
-                               (change)="onCheckBox()">
-                    </div>
-                </div>
-            </app-form>
-        </div>
+        <app-player-form
+                [formConfig]="formConfig"
+                [filterConfig]="formFilterConfig"
+                (onSort)="onSort()"></app-player-form>
         <div class="Player-toggleOptions">
             <button class="Player-gridViewAction"
                     [disabled]="gridView"
@@ -55,7 +20,7 @@
     </div>
     <ng-template #cardsView>
         <div class="Player-contentContainer">
-            <div class="Player-content" *ngFor="let player of team.squad">
+            <div class="Player-content" *ngFor="let player of list">
                 <app-card>
                     <button class="Button-button" (click)="getPlayerInfo(player)">
                         <div class="Player-card">

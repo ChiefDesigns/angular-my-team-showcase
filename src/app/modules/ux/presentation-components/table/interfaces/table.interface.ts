@@ -8,15 +8,14 @@ export interface ITableConfig {
     body: ITableConfigBody;
 }
 
-export interface ITableConfigHeader {
-    items: ITableConfigHeaderItem[];
+export interface ITableConfigHeader extends ITableItems<ITableConfigHeaderItem[]> {}
+
+export interface ITableConfigBody extends ITableItems<ITableConfigBodyItem[]> {}
+
+export interface ITableItems<T> {
+    items: T;
 }
 
-export interface ITableConfigBody {
-    items: any;
-}
-
-// Refactor: these two interfaces into one
 export interface ITableConfigHeaderItem {
     action?: () => void;
     text: string;

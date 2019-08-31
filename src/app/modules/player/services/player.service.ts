@@ -3,17 +3,15 @@ import {Injectable, Renderer2} from "@angular/core";
 import {IPlayer} from "../interfaces/player.interface";
 import {Observable} from "rxjs";
 import {ModelInstance} from "../../core/model/model-instance/model-instance";
-import {PlayerFilter} from "../business-components/player/enums/player.enum";
 import {IFormConfig} from "../../forms/form/interfaces/form.component.interface";
 import {IInfoGridHeader} from "../../ux/info-grid/interfaces/info-grid.component.interface";
+import { ITableConfigHeader } from "../../ux/presentation-components/table/interfaces/table.interface";
 
 @Injectable()
 export class PlayerService {
   public filtered: IPlayer[] = [];
 
   private _appModel: AppModel;
-  private _checkedInOrder: string[] = [];
-  private _checkedCollection: string[] = [];
 
   constructor(myTeamModel: AppModel, ) {
     this._appModel = myTeamModel;
@@ -22,21 +20,6 @@ export class PlayerService {
   public getPlayers(url: string): Observable<ModelInstance> {
     return this._appModel.get(url);
   }
-
-  public search (model: IPlayer[], searchValue: string): any {
-    const filtered: IPlayer[] = model.filter((player: IPlayer): any => {
-      return player.name.toLowerCase().search(searchValue) !== -1;
-    });
-
-    return filtered;
-  }
-
-  public onCheckBoxFilter(config: any): any {
-    const {checkboxes, renderer, squad } = config;
-
-    this._filterSquad(checkboxes, renderer, squad)
-  }
-
 
   public getFormConfig(): IFormConfig {
     return {
@@ -87,74 +70,30 @@ export class PlayerService {
     ];
   }
 
-  private _filterSquad(checkboxes: any[], renderer: Renderer2, squad: IPlayer[]): void {
-    if(checkboxes && checkboxes.length) {
-
-      checkboxes.forEach((checkbox: any): void => {
-        renderer.listen(checkbox.nativeElement, 'click', (event: any): any => {
-          this._setFiltered(checkbox, squad);
-        });
-      });
-    }
-  }
-
-  private _setFiltered(checkbox: any, squad: IPlayer[]): void {
-    if (checkbox.nativeElement.checked) {
-      this._setCheckedFilter(checkbox, squad);
-    } else {
-      this._removeCheckedFilter(checkbox);
-    }
-  }
-
-  private _extractFiltered(filter: string, squad: any): any {
-    const filtered = squad.filter((player: any): any => {
-      if(player.position) {
-        return filter.toLowerCase() === player.position.toLowerCase()
+  public setTableHeaderFieldConfig(): ITableConfigHeader {
+    return  {
+        items: [
+          {
+            text: 'Name',
+            fieldId: 'name'
+          },
+          {
+            text: 'Nationality',
+            fieldId: 'nationality'
+          },
+          {
+            text: 'Position',
+            fieldId: 'position'
+          },
+          {
+            text: 'Date Of Birth',
+            fieldId: 'dateOfBirth'
+          },
+          {
+            text: 'Role',
+            fieldId: 'role'
+          }
+        ],
       }
-    });
-
-    return filtered;
-
   }
-
-  private _setCheckedFilter(checkbox: any, squad: IPlayer[]): void {
-    const order: number = Number(PlayerFilter[checkbox.nativeElement.name.toUpperCase()]);
-    const filteredByPosition: IPlayer[] = [];
-
-    if(this._checkedInOrder.indexOf(checkbox.nativeElement.name) === -1) {
-      // Adds empty slots in the array - clear them or implement alternative solution
-      this._checkedInOrder[order] = (checkbox.nativeElement.name);
-    }
-
-    this._checkedInOrder.forEach((filter: string): void => {
-      filteredByPosition.push(...this. _extractFiltered(filter, squad))
-    })
-
-    this.filtered = filteredByPosition;
-  }
-
-  private _removeCheckedFilter(checkbox: any): void {
-    const index: number = this._checkedInOrder.indexOf(checkbox.nativeElement.name);
-
-    if (index !== -1) {
-      this._checkedInOrder.splice(index, 1);
-    }
-
-
-    // Remove empty slots
-    this._checkedInOrder = this._checkedInOrder.filter((): boolean => {
-      return true;
-    });
-
-    if (this._checkedInOrder.length) {
-      this._checkedInOrder.forEach((): void => {
-        this.filtered = this.filtered.filter((player: IPlayer): any => {
-          return checkbox.nativeElement.name !== player.position.toLowerCase();
-        });
-      })
-    } else {
-      this.filtered = [];
-    }
-  }
-
 }
