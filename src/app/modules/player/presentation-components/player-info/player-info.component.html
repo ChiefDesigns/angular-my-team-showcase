@@ -1,3 +1,12 @@
-<p>Hello From Player Info</p>
-
-<p>{{player.biography}}</p>
+<section class="PlayerInfo-section">
+    <div class="PlayerInfo-nameAndShirtNumberContainer">
+        <span class="PlayerInfo-shirtNumber">#{{player.shirtNumber}}</span>
+        <span class="PlayerInfo-name">{{player.name}}</span>
+    </div>
+    <div class="PlayerInfo-imageContainer">
+        <img class="PlayerInfo-image" [src]="player.image" alt="">
+    </div>
+    <div class="PlayerInfo-biographyContainer" *ngIf="biography">
+        <p class="PlayerInfo-biography" [innerHTML]="biography"></p>
+    </div>
+</section>

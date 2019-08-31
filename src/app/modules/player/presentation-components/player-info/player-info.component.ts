@@ -9,7 +9,8 @@ import {IPlayer} from "../../interfaces/player.interface";
     templateUrl: './player-info.component.html'
 })
 export class PlayerInfoComponent {
-    public player: IPlayer
+    public player: IPlayer;
+    public biography: string;
     private _activatedRoute: ActivatedRoute;
     private _squad: IPlayer[];
     constructor(activatedRoute: ActivatedRoute) {
@@ -19,6 +20,7 @@ export class PlayerInfoComponent {
 
             if (player) {
                 this.player = player;
+                this.biography = player.biography.replace(/\\n/g, "<br />");
             }
         });
     }

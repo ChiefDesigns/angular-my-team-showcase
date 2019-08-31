@@ -1,0 +1,27 @@
+<button class="Button-button" (click)="config.getPlayerInfo()">
+  <div class="PlayerCard-card">
+    <div class="PlayerCard-informationContainer">
+      <div class="PlayerCard-imageContainer">
+        <img class="PlayerCard-image" [src]="config.player.image || playerImagePlaceholder" alt="">
+      </div>
+      <div class="PlayerCard-numberNameContainer">
+        <div class="PlayerCard-numberContainer">
+          <h1 class="PlayerCard-number">#{{config.player.shirtNumber}}</h1>
+        </div>
+        <div class="PlayerCard-nameContainer">
+          <h1 class="PlayerCard-name">{{config.player.name}}</h1>
+        </div>
+      </div>
+      <div class="PlayerCard-clubCrestContainer">
+        <img class="PlayerCard-clubCrest" [src]="config.team.clubCrestUrl" alt="">
+        <span class="PlayerCard-clubName">{{config.team.name}}</span>
+      </div>
+      <div class="PlayerCard-infoGrid">
+        <app-info-grid [config]="{
+                                header: config.infoGridHeader,
+                                body: [config.player.nationality, config.player.position, config.player.dateOfBirth | date, config.team.squadMemberRole[config.player.role]]
+                            }"></app-info-grid>
+      </div>
+    </div>
+  </div>
+</button>

@@ -3,7 +3,7 @@
 .App {
   &-container {
     width: 100%;
-    max-width: 90rem;
+    max-width: 100%;
 
     @include media-sm {
       margin: 0 auto;

@@ -15,15 +15,15 @@ import {IPlayer} from "../../interfaces/player.interface";
 import {ITableConfig, ITableConfigBodyItem} from "../../../ux/presentation-components/table/interfaces/table.interface";
 import {BehaviorSubject} from "rxjs";
 import {IPlayerFormConfig} from "./form/interfaces/player-form.interface";
+import {IPlayerCardConfig} from "../../presentation-components/player-card/interfaces/player-car.interface";
 
 @Component({
     selector: 'app-player-component',
     styleUrls: ['./player.component.scss'],
     templateUrl: './player.component.html'
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements  OnInit {
     public team: ITeamProps;
-    public playerImagePlaceholder: string = playerImagePlaceholder;
     public _router: Router;
     public infoGridHeader: any[];
     public formConfig: IFormConfig;
@@ -59,6 +59,18 @@ export class PlayerComponent implements OnInit {
             this.list = nextList.length ? nextList : this.team.squad;
             this.tableConfig.body.items = this._mapTableBodyItems();
         })
+    }
+
+    public setPlayerCardConfig(player: IPlayer): IPlayerCardConfig {
+        return {
+            infoGridHeader: this.infoGridHeader,
+            player,
+            team: this.team,
+            getPlayerInfo: (): void => {
+                this.getPlayerInfo(player)
+            },
+
+        }
     }
 
     public toggleView(): void {
