@@ -96,10 +96,5 @@
       }
     }
   },
-  "defaultProject": "demo",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  }
+  "defaultProject": "demo"
 }
