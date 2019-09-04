@@ -31,10 +31,10 @@ export class PlayerFormComponent implements IPlayerForm {
   }
 
   public onKeyUp(event: any): void {
-    const searchValue: string = event.target.value;
+    const searchValue: string = (event.target.value && event.target.value.toLowerCase());
     const result: any = this._playerFormService.search(this.filterConfig.sortModel.collection, searchValue);
 
     this.filterConfig.listSubject.next(result);
-    this.onSort.emit()
+    this.onSort.emit();
   }
 }
